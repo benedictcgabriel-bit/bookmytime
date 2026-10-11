@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: bookmytime
+    env: python
+    buildCommand: "echo 'No build step required'"
+    startCommand: "python3 server.py"
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: HOST
+        value: 0.0.0.0
+      - key: DB_PATH
+        value: /app/data/appointments.db
+    disk:
+      name: data
+      mountPath: /app/data
+      sizeGB: 1
